@@ -13,9 +13,9 @@ import java.util.concurrent.atomic.LongAdder;
 public class Main {
 
   private static final int MAX_TASKS_AND_THREADS = 3;
-  private static final int MIN_SALES = 1;
+  private static final int MIN_SALES = 10;
   private static final int MAX_SALES = 10_000;
-  private static final int MIN_PRICE = 1;
+  private static final int MIN_PRICE = 10;
   private static final int MAX_PRICE = 1_000;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -27,8 +27,8 @@ public class Main {
           Randoms.getIntArray(
               Randoms.getRandomInt(MIN_PRICE, MAX_PRICE), // Минимальное значение цены
               Randoms.getRandomInt(MIN_PRICE, MAX_PRICE), // Максимальное значение цены
-              Randoms.getRandomInt(
-                  MIN_SALES, MAX_SALES))); // Количество продаж (он же размер массива)
+              Randoms.getRandomInt(MIN_SALES, MAX_SALES) // Количество продаж (он же размер массива)
+              ));
     }
 
     // Атомарная сумма массивов
