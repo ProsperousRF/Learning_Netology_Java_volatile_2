@@ -17,7 +17,7 @@ public class Randoms {
    * @return random int number
    */
   public static int getRandomInt(int min, int max) {
-    return ThreadLocalRandom.current().nextInt(min, max + 1);
+    return min < max ? ThreadLocalRandom.current().nextInt(min, max + 1) : min;
   }
 
   /**
