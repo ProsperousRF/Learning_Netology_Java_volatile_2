@@ -1,21 +1,21 @@
-import java.util.concurrent.Callable;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author Stanislav Rakitov
  */
-public class Counter implements Callable<Integer> {
-  private int sum;
+public class Counter implements Runnable {
   private final int[] array;
+  private final LongAdder counter;
 
-  public Counter(int[] array) {
+  public Counter(int[] array, LongAdder counter) {
     this.array = array;
+    this.counter = counter;
   }
 
   @Override
-  public Integer call() {
+  public void run() {
     for (int j : array) {
-      sum += j;
+      counter.add(j);
     }
-    return sum;
   }
 }
